@@ -12,4 +12,10 @@ export class HeaderComponent {
   protected readonly Title = Title;
 
   public titleQ = 'se'
+  public searchText = "";
+
+  public search(text: string): void {
+    this.searchText = text
+    console.log(text)
+  }
 }
