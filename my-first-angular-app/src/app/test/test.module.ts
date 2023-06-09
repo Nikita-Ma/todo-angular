@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TestComponent } from './test.component';
-import { TestPipe } from '../test.pipe';
+// import { TestPipe } from '../test.pipe';
 
 
 
 @NgModule({
   declarations: [
     TestComponent,
-    TestPipe
+    // TestPipe
   ],
   exports: [
     TestComponent
