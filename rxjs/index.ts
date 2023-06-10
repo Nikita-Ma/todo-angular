@@ -1,17 +1,11 @@
-import {Observable} from "rxjs";
+import {iif, of} from "rxjs";
 
-const exampleObserever$ = new Observable(subscriber => {
-        let count = 1
-        const int = setInterval(() => {
-            if (count % 5 === 0) {
-                clearInterval(int)
-                subscriber.complete()
-                return
-            }
-            subscriber.next(count++)
-        }, 3000)
-    }
-)
-exampleObserever$.subscribe((v) => {
-    console.log(v)
-}, (error)=>{}, (complite)=>{})
+
+const rnd = Math.random() * 100
+let sub$ = iif(() => {
+    return rnd > 5
+}, of('value >5'), of('value<5'))
+
+sub$.subscribe((value) => {
+    console.log(value)
+})
