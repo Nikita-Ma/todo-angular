@@ -1,29 +1,20 @@
-// const sequence = new Promise((res) => {
-//     let count = 0;
-//     setInterval(() => {
-//         res(count++)
-//     })
-// })
-//
-// sequence.then((v)=>console.log(v))
+// ReactiveX - iterator + observer
+
+class CustomIterable {
+
+    private cursor = 0
+    private value: number
+
+    constructor(private arr: number[], private divistor = 1) {
+    }
 
 
-//======================================================
-
-// const sequence = function* iteraotrFn() {
-//     let item = 1
-//     while (true) {
-//         yield item++
-//     }
-// }()
-//
-//
-// console.log(sequence.next().value)
-
-// =====================================================
-
-import {interval} from "rxjs";
-
-interval(1000).subscribe((v) => {
-    console.log(v)
-})
+    private next() {
+        while (this.cursor < this.arr.length) {
+            this.value = this.arr[this.cursor++]
+            if (this.value % this.divistor === 0) {
+                return {done: false, value: this.value}
+            }
+        }
+    }
+}
