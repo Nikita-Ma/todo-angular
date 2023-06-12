@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, ComponentFactoryResolver, ViewContainerRef} from '@angular/core';
+import {ChildComponent} from "./child/child.component";
+import {SecondComponent} from "./second/second.component";
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-second-angular-app';
-    protected readonly InputEvent = InputEvent;
+  dynamicComp = ChildComponent
+  constructor(
+    viewContainer: ViewContainerRef,
+    cfr: ComponentFactoryResolver
+  )
+  // {
+  //   const ChildComponentFactory = cfr.resolveComponentFactory(ChildComponent)
+  //   const childComponent = viewContainer.createComponent(ChildComponentFactory)
+  //
+  //   setTimeout(()=>viewContainer.remove(),3000)
+  // }
+
+  {
+    setTimeout(()=> {
+      this.dynamicComp = ChildComponent
+    },3000)
+    setTimeout(()=>{
+      this.dynamicComp = SecondComponent
+    }, 6000)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  protected readonly ChildComponent = ChildComponent;
 }
