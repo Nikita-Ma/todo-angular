@@ -7,6 +7,7 @@ import { ColoryDirective } from './colory.directive';
 import { ChildComponent } from './child/child.component';
 import { DelayDirective } from './delay.directive';
 import { SecondComponent } from './second/second.component';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SecondComponent } from './second/second.component';
     ColoryDirective,
     ChildComponent,
     DelayDirective,
-    SecondComponent
+    SecondComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

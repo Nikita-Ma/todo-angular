@@ -9,27 +9,25 @@ import {SecondComponent} from "./second/second.component";
 })
 export class AppComponent {
   dynamicComp = ChildComponent
-  constructor(
-    viewContainer: ViewContainerRef,
-    cfr: ComponentFactoryResolver
-  )
+  // constructor(
+  //   viewContainer: ViewContainerRef,
+  //   cfr: ComponentFactoryResolver
+  // )
   // {
   //   const ChildComponentFactory = cfr.resolveComponentFactory(ChildComponent)
   //   const childComponent = viewContainer.createComponent(ChildComponentFactory)
   //
   //   setTimeout(()=>viewContainer.remove(),3000)
   // }
-
-  {
-    setTimeout(()=> {
-      this.dynamicComp = ChildComponent
-    },3000)
-    setTimeout(()=>{
-      this.dynamicComp = SecondComponent
-    }, 6000)
-  }
-
-
+  //
+  // {
+  //   setTimeout(()=> {
+  //     this.dynamicComp = ChildComponent
+  //   },3000)
+  //   setTimeout(()=>{
+  //     this.dynamicComp = SecondComponent
+  //   }, 6000)
+  // }
 
 
 
@@ -40,5 +38,6 @@ export class AppComponent {
 
 
 
-  protected readonly ChildComponent = ChildComponent;
+
+
 }
