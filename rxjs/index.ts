@@ -1,11 +1,7 @@
-import {iif, of} from "rxjs";
+import {fromEvent, pluck} from "rxjs";
 
-
-const rnd = Math.random() * 100
-let sub$ = iif(() => {
-    return rnd > 5
-}, of('value >5'), of('value<5'))
-
-sub$.subscribe((value) => {
-    console.log(value)
-})
+fromEvent<TouchEvent>(document, 'touchstart')
+    .pipe(
+        pluck('changedTouches', 0, 'clientX')
+    )
+fromEvent<TouchEvent>(document, 'touchend')
