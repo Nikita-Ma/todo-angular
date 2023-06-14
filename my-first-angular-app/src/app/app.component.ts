@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
+// @ts-ignore
 export class AppComponent {
-  title = 'my-first-angular-app';
+  public title = 'Компонент домашней страницы';
 }
