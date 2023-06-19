@@ -27,7 +27,11 @@ export class AppComponent {
     this.todolist[index].important = !this.todolist[index].important
   }
 
-  delItem(event:any, index:any){
+  saveTodo(event: any) {
+    this.todolist.push({name: event.target.value, index: 0, important: false, complete: true})
+  }
+
+  delItem(event: any, index: any) {
     delete this.todolist[index]
   }
 

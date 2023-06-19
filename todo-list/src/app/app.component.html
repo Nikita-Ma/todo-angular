@@ -1,6 +1,8 @@
+<input type="text" (input)="saveTodo($event)">
+
 <ul>
   <li *ngFor="let i of todolist">{{i.name}} | {{i.complete}} |  {{i.important}}
-    <button (click)="reImportant($event, i.index)">Important</button>
+    <button [ngStyle]="{ 'color': 'green' }"  (click)="reImportant($event, i.index)">Important</button>
     <button (click)="delItem($event, i.index)">Delete</button>
   </li>
 </ul>
